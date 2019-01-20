@@ -2,7 +2,6 @@ package com.github.jw3.examplehud
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.view.View
 import android.view.ViewGroup
@@ -44,22 +43,6 @@ class MainActivity : FragmentActivity(), OnCamFragmentInteractionListener, OnMap
         minicam1.setOnClickListener {
             sm.call("cam1")
         }
-
-
-//        val v0 = map["m0"]?.view
-//        val v1 = map["m1"]?.view
-//        val v2 = map["m2"]?.view
-//
-//        val p0 = v0?.parent
-//        val p1 = v1?.parent
-//        val p2 = v1?.parent
-//
-//
-//        if (p0 is ViewGroup && p1 is ViewGroup && p2 is ViewGroup) {
-//            p0.removeView(v0)
-//            p1.removeView(v1)
-//            p0.addView(v1)
-//            p1.addView(v0)
     }
 
     fun activateCam0() {

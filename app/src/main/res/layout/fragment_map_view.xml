@@ -5,10 +5,17 @@
              android:layout_height="match_parent"
              tools:context=".MapView">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.esri.arcgisruntime.mapping.view.MapView
+            android:id="@+id/mapView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/map_view_blank_text" android:id="@+id/textView"/>
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp">
+
+    </com.esri.arcgisruntime.mapping.view.MapView>
+
+
 
 </FrameLayout>
