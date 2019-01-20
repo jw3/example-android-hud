@@ -6,13 +6,20 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
+
+private const val StrIdParam = "strIdParam"
 
 class CamView : Fragment() {
     private var listener: OnCamFragmentInteractionListener? = null
+    private var strId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        arguments?.let {
+            strId = it.getString(StrIdParam)
+        }
     }
 
     override fun onCreateView(
@@ -21,7 +28,14 @@ class CamView : Fragment() {
     ): View? {
         val f = inflater.inflate(R.layout.fragment_cam_view, container, false)
         f.setOnClickListener { onButtonPressed() }
+        f.findViewById<TextView>(R.id.textView)?.let {
+            it.text = strId
+        }
         return f
+    }
+
+    fun idStr(): String? {
+        return strId
     }
 
     fun onButtonPressed() {
@@ -44,6 +58,12 @@ class CamView : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = CamView().apply {}
+        fun newInstance(strId: String) =
+            CamView().apply {
+                arguments = Bundle().apply {
+                    putString(StrIdParam, strId)
+                }
+
+            }
     }
 }

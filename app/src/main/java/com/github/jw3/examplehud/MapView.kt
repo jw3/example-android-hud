@@ -6,13 +6,20 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
+
+private const val StrIdParam = "strIdParam"
 
 class MapView : Fragment() {
     private var listener: OnMapFragmentInteractionListener? = null
+    private var strId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        arguments?.let {
+            strId = it.getString(StrIdParam)
+        }
     }
 
     override fun onCreateView(
@@ -22,8 +29,13 @@ class MapView : Fragment() {
         // Inflate the layout for this fragment
         val f = inflater.inflate(R.layout.fragment_map_view, container, false)
         f.setOnClickListener { onButtonPressed() }
+        f.findViewById<TextView>(R.id.textView)?.let {
+            it.text = strId
+        }
         return f
     }
+
+    fun idStr(): String? { return strId }
 
     fun onButtonPressed() {
         listener?.onFragmentInteraction(this)
@@ -45,7 +57,11 @@ class MapView : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() =
-            MapView().apply { }
+        fun newInstance(strId: String) =
+            MapView().apply {
+                arguments = Bundle().apply {
+                    putString(StrIdParam, strId)
+                }
+            }
     }
 }

@@ -14,8 +14,8 @@
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintTop_toTopOf="@+id/map" app:layout_constraintBottom_toBottomOf="@+id/map"
             android:layout_marginEnd="333dp" android:layout_marginStart="333dp" android:layout_marginBottom="111dp"
-            android:layout_marginTop="111dp" android:visibility="invisible"
-            android:backgroundTint="@color/colorPrimary">
+            android:layout_marginTop="111dp"
+            android:visibility="visible" android:background="@android:drawable/screen_background_light_transparent">
 
     </FrameLayout>
     <FrameLayout
@@ -52,7 +52,7 @@
             android:id="@+id/map" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="32dp" android:layout_marginBottom="8dp" android:layout_marginTop="8dp"
-            android:background="@android:drawable/screen_background_dark_transparent">
+            android:background="@android:drawable/screen_background_dark_transparent" android:visibility="visible">
 
     </FrameLayout>
 </android.support.constraint.ConstraintLayout>
